@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { BrowserRouter as Router, Switch, Route, link, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import CreatStudent from './components/create-student.component';
 import EditStudent from './components/edit-student.component';
@@ -19,7 +19,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
 
         <NavBar bg="dark" variant="dark">
           <Container>
@@ -30,22 +29,21 @@ function App() {
               </Link>
             </NavBar.Brand>
 
-            <Nav>
-              <link to={"/creat-student"} className="nav-link">
-                Create student
-              </link>
+            <Nav className="justify-content-end">
+              <Nav>
+                <Link to={"/creat-student"} className="nav-link">
+                  Create student
+                </Link>
+              </Nav>
+              <Nav>
+                <Link to={"/creat-student"} className="nav-link">
+                  Create student
+                </Link>
+              </Nav>
             </Nav>
-
-            <Nav>
-              <link to={"/creat-student"} className="nav-link">
-                Create student
-              </link>
-            </Nav>
-
+            
           </Container>
         </NavBar>
-
-        </header>
 
         <Container>
           <Row>
