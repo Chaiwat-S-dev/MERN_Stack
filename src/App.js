@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-
 import Nav from 'react-bootstrap/Nav';
 import NavBar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -31,13 +29,13 @@ function App() {
 
             <Nav className="justify-content-end">
               <Nav>
-                <Link to={"/creat-student"} className="nav-link">
+                <Link to={"/create-student"} className="nav-link">
                   Create student
                 </Link>
               </Nav>
               <Nav>
-                <Link to={"/creat-student"} className="nav-link">
-                  Create student
+                <Link to={"/student-list"} className="nav-link">
+                  Student list
                 </Link>
               </Nav>
             </Nav>
