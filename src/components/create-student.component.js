@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
 
 export default class CreatStudent extends Component {
     
@@ -25,11 +26,20 @@ export default class CreatStudent extends Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
+        
+        const studentObject = {
+            name: this.state.name,
+            email: this.state.email,
+            rollno: this.state.rollno
+        };
 
-        console.log('Student successfully Created');
-        console.log(`Name: ${this.state.name}`);
-        console.log(`Email: ${this.state.email}`);
-        console.log(`Roll no: ${this.state.rollno}`);
+        axios.post('http://localhost:4000/students/create-student', studentObject).then(res =>
+        console.log(res.data));
+
+        // console.log('Student successfully Created');
+        // console.log(`Name: ${this.state.name}`);
+        // console.log(`Email: ${this.state.email}`);
+        // console.log(`Roll no: ${this.state.rollno}`);
 
         this.setState({
             name: '',
