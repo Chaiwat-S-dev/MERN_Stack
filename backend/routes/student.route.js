@@ -1,21 +1,21 @@
 let mongoose = require('mongoose'),
     express = require('express'),
-    router = express.router();
+    router = express.Router();
 
-    // Student model
-    let studentSchema = require('../models/Student');
+// Student model
+let studentSchema = require('../models/Student');
 
-    // Create Student
-    router.route('/create-student').post((req, res, next) => {
-        studentSchema.create(req.body, (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                console.log(data);
-                res.json(data);
-            }
-        })
+// Create Student
+router.route('/create-student').post((req, res, next) => {
+    studentSchema.create(req.body, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            console.log(data);
+            res.json(data);
+        }
     })
+})
 
 // Get single student
 router.route('/').get((req, res) => {
