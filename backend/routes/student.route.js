@@ -1,9 +1,9 @@
-let mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
     express = require('express'),
     router = express.Router();
 
 // Student model
-let studentSchema = require('../models/Student');
+const studentSchema = require('../models/Student');
 
 // Create Student
 router.route('/create-student').post((req, res, next) => {
@@ -19,7 +19,7 @@ router.route('/create-student').post((req, res, next) => {
 
 // Get single student
 router.route('/').get((req, res) => {
-    studentSchema.find(error, data => {
+    studentSchema.find((error, data) => {
         if (error) {
             return next(error);
         } else {
@@ -30,7 +30,7 @@ router.route('/').get((req, res) => {
 
 // Get single student
 router.route('/edit-student/:id').get((req, res) => {
-    studentSchema.findById(req.params.id, (error, id) => {
+    studentSchema.findById(req.params.id, (error, data) => {
         if (error) {
             return next(error);
         } else {
@@ -55,7 +55,7 @@ router.route('/update-student/:id').put((req, res, next) => {
 
 //Delete student
 router.route('/delete-student/:id').delete((req, res, next) => {
-    studentSchema.findByIdAndRemove(res.params.id, (error, data) => {
+    studentSchema.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);
         } else {
