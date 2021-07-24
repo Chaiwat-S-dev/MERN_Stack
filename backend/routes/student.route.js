@@ -17,7 +17,7 @@ router.route('/create-student').post((req, res, next) => {
     })
 })
 
-// Get single student
+// Get all student
 router.route('/').get((req, res) => {
     studentSchema.find((error, data) => {
         if (error) {
