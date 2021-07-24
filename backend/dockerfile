@@ -1,0 +1,20 @@
+
+FROM node:14-alpine
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Copy packeage config & install
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Copy bundle app source
+COPY . .
+
+# Expose port in docker
+EXPOSE 4000
+
+CMD [ "node", "index.js" ]

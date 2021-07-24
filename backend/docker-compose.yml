@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  student_backend:
+    build: .
+    container_name: student_api_crud
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+    volumes: 
+      - .:/usr/src/app
+  mongo:
+    image: mongo
+    container_name: db_mongo_student
+    ports:
+      - "27017:27017"
+    volumes: 
+      - /home/dev/container/data:/data/db
+
+volumes: 
+  data:
